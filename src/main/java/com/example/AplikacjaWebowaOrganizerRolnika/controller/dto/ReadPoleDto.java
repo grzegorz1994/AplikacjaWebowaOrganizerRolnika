@@ -15,4 +15,5 @@ public class ReadPoleDto {
     private String rodzajUprawy;
     private Date created;
     private List<ReadNawozenieMineralneDto> nawozenieMineralne;
+    private List<ReadNawozenieOrganiczneDto> nawozenieOrganiczne;
 }

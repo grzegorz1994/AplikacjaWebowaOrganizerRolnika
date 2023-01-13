@@ -1,13 +1,14 @@
 package com.example.AplikacjaWebowaOrganizerRolnika.controller.mapper;
 
 import com.example.AplikacjaWebowaOrganizerRolnika.controller.dto.ReadNawozenieMineralneDto;
+import com.example.AplikacjaWebowaOrganizerRolnika.controller.dto.ReadNawozenieOrganiczneDto;
 import com.example.AplikacjaWebowaOrganizerRolnika.controller.dto.ReadPoleDto;
 import com.example.AplikacjaWebowaOrganizerRolnika.model.Pole;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ReadPoleMapper {
+public class ReadPoleListMapper {
 
     public static List<ReadPoleDto> mapPoleToReadPoleDtoList(List<Pole> poleList) {
         return poleList.stream()
@@ -21,8 +22,14 @@ public class ReadPoleMapper {
                                 .map(nawozenieMineralne -> ReadNawozenieMineralneDto.builder()
                                         .nawozMineralny(nawozenieMineralne.getNawozMineralny())
                                         .build()
+                                        ).collect(Collectors.toList())
+                        ).nawozenieOrganiczne(pole.getNawozenieOrganiczne().stream()
+                                .map(nawozenieOrganiczne -> ReadNawozenieOrganiczneDto.builder()
+                                        .nawozOrganiczny(nawozenieOrganiczne.getNawozOrganiczny())
+                                        .build()
                                 ).collect(Collectors.toList())
-                        ).build()
+                        )
+                        .build()
                 ).collect(Collectors.toList());
     }
 }

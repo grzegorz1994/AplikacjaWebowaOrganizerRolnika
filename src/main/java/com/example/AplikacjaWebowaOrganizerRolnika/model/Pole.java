@@ -23,4 +23,7 @@ public class Pole {
     @OneToMany
     @JoinColumn(name = "poleId")
     private List<NawozenieMineralne> nawozenieMineralne;
+    @OneToMany
+    @JoinColumn(name = "poleId")
+    private List<NawozenieOrganiczne> nawozenieOrganiczne;
 }
