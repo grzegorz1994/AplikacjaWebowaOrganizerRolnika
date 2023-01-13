@@ -3,6 +3,7 @@ package com.example.AplikacjaWebowaOrganizerRolnika.controller.mapper;
 import com.example.AplikacjaWebowaOrganizerRolnika.controller.dto.ReadNawozenieMineralneDto;
 import com.example.AplikacjaWebowaOrganizerRolnika.controller.dto.ReadNawozenieOrganiczneDto;
 import com.example.AplikacjaWebowaOrganizerRolnika.controller.dto.ReadPoleDto;
+import com.example.AplikacjaWebowaOrganizerRolnika.controller.dto.ReadZabiegOchronnyDto;
 import com.example.AplikacjaWebowaOrganizerRolnika.model.Pole;
 
 import java.util.List;
@@ -28,8 +29,13 @@ public class ReadPoleListMapper {
                                         .nawozOrganiczny(nawozenieOrganiczne.getNawozOrganiczny())
                                         .build()
                                 ).collect(Collectors.toList())
-                        )
-                        .build()
+                        ).zabiegOchronny(pole.getZabiegOchronny().stream()
+                                .map(zabiegOchronny -> ReadZabiegOchronnyDto.builder()
+                                        .rodzajZabiegu(zabiegOchronny.getRodzajZabiegu())
+                                        .dataZabiegu(zabiegOchronny.getDataZabiegu())
+                                        .build()
+                                ).collect(Collectors.toList())
+                        ).build()
                 ).collect(Collectors.toList());
     }
 }

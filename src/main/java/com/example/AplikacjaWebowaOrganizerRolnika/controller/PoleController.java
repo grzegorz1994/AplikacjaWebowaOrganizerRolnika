@@ -4,6 +4,7 @@ import com.example.AplikacjaWebowaOrganizerRolnika.controller.dto.*;
 import com.example.AplikacjaWebowaOrganizerRolnika.model.NawozenieMineralne;
 import com.example.AplikacjaWebowaOrganizerRolnika.model.NawozenieOrganiczne;
 import com.example.AplikacjaWebowaOrganizerRolnika.model.Pole;
+import com.example.AplikacjaWebowaOrganizerRolnika.model.ZabiegOchronny;
 import com.example.AplikacjaWebowaOrganizerRolnika.service.PoleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import java.util.List;
 
 import static com.example.AplikacjaWebowaOrganizerRolnika.controller.mapper.CreateNawozMineralnyMapper.mapToNawozMineralny;
 import static com.example.AplikacjaWebowaOrganizerRolnika.controller.mapper.CreatePoleMapper.mapToPole;
+import static com.example.AplikacjaWebowaOrganizerRolnika.controller.mapper.CreateZabiegOchronnyMapper.mapToZabiegOchronny;
 import static com.example.AplikacjaWebowaOrganizerRolnika.controller.mapper.ReadPoleListMapper.mapPoleToReadPoleDtoList;
 import static com.example.AplikacjaWebowaOrganizerRolnika.controller.mapper.CreateNawozOrganicznyMapper.mapToNawozOrganiczny;
 
@@ -44,5 +46,10 @@ public class PoleController {
     @PostMapping("/poles/createOrganic/{poleId}")
     public NawozenieOrganiczne createNawozOrganiczny(@PathVariable Long poleId, @RequestBody CreateNawozOrganicznyDto createNawozOrganicznyDto){
         return poleService.createNawozOrganiczny(mapToNawozOrganiczny(poleId, createNawozOrganicznyDto));
+    }
+
+    @PostMapping("/poles/createOchrona/{poleId}")
+    public ZabiegOchronny createZabiegOchronny(@PathVariable Long poleId, @RequestBody CreateZabiegOchronnyDto createZabiegOchronnyDto){
+        return poleService.createZabiegOchronny(mapToZabiegOchronny(poleId, createZabiegOchronnyDto));
     }
 }

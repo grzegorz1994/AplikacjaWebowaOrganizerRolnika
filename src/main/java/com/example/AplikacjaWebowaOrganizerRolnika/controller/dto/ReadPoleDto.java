@@ -16,4 +16,5 @@ public class ReadPoleDto {
     private Date created;
     private List<ReadNawozenieMineralneDto> nawozenieMineralne;
     private List<ReadNawozenieOrganiczneDto> nawozenieOrganiczne;
+    private List<ReadZabiegOchronnyDto> zabiegOchronny;
 }

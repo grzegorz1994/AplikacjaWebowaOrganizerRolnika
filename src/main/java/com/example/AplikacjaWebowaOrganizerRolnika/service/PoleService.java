@@ -4,9 +4,11 @@ import com.example.AplikacjaWebowaOrganizerRolnika.controller.dto.ReadPoleDto;
 import com.example.AplikacjaWebowaOrganizerRolnika.model.NawozenieMineralne;
 import com.example.AplikacjaWebowaOrganizerRolnika.model.NawozenieOrganiczne;
 import com.example.AplikacjaWebowaOrganizerRolnika.model.Pole;
+import com.example.AplikacjaWebowaOrganizerRolnika.model.ZabiegOchronny;
 import com.example.AplikacjaWebowaOrganizerRolnika.repository.NawozenieMineralneRepository;
 import com.example.AplikacjaWebowaOrganizerRolnika.repository.NawozenieOrganiczneRepository;
 import com.example.AplikacjaWebowaOrganizerRolnika.repository.PoleRepository;
+import com.example.AplikacjaWebowaOrganizerRolnika.repository.ZabiegOchronnyRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,7 @@ public class PoleService {
     private final PoleRepository poleRepository;
     private final NawozenieMineralneRepository nawozenieMineralneRepository;
     private final NawozenieOrganiczneRepository nawozenieOrganiczneRepository;
+    private final ZabiegOchronnyRepository zabiegOchronnyRepository;
 
     public Pole createPole(Pole pole){
         return poleRepository.save(pole);
@@ -38,5 +41,9 @@ public class PoleService {
 
     public NawozenieOrganiczne createNawozOrganiczny(NawozenieOrganiczne nawozenieOrganiczne){
         return nawozenieOrganiczneRepository.save(nawozenieOrganiczne);
+    }
+
+    public ZabiegOchronny createZabiegOchronny(ZabiegOchronny zabiegOchronny){
+        return zabiegOchronnyRepository.save(zabiegOchronny);
     }
 }

@@ -26,4 +26,7 @@ public class Pole {
     @OneToMany
     @JoinColumn(name = "poleId")
     private List<NawozenieOrganiczne> nawozenieOrganiczne;
+    @OneToMany
+    @JoinColumn(name = "poleId")
+    private List<ZabiegOchronny> zabiegOchronny;
 }
