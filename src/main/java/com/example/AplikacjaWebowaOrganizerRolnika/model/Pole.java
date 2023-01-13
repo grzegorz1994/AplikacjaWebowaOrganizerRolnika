@@ -1,8 +1,7 @@
 package com.example.AplikacjaWebowaOrganizerRolnika.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.sql.Date;
 import java.util.List;
@@ -10,6 +9,9 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Pole {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

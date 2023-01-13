@@ -1,5 +1,6 @@
 package com.example.AplikacjaWebowaOrganizerRolnika.service;
 
+import com.example.AplikacjaWebowaOrganizerRolnika.controller.dto.ReadPoleDto;
 import com.example.AplikacjaWebowaOrganizerRolnika.model.NawozenieMineralne;
 import com.example.AplikacjaWebowaOrganizerRolnika.model.Pole;
 import com.example.AplikacjaWebowaOrganizerRolnika.repository.NawozenieMineralneRepository;
@@ -27,5 +28,4 @@ public class PoleService {
     public List<Pole> getPoleList(){
         return poleRepository.findAll();
     }
-
 }
